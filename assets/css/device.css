@@ -1,0 +1,28 @@
+.screen {
+  box-shadow: inset 0px 0px 10px 5px rgba(0,0,0,0.5);
+  background-color: #88c03d;
+
+  height: 600px;
+  max-height: 600px;
+
+  border-radius: 10px;
+  padding: 20px;
+
+  overflow-y: hidden;
+}
+
+.cutter{
+  border-radius: 10px;
+  overflow-y: auto;
+  height: 560px;
+  max-height: 560px;
+  scrollbar-width: none;
+}
+
+@media screen and (min-width: 992px) {
+  .screen {
+      max-width: 992px;
+      width: 700px;
+      border-radius: 1rem;
+  }
+}
