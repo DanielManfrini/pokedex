@@ -6,7 +6,7 @@ const typeFilter = document.getElementById('type-filter')
 const maxRecords = 151;
 const limit = 20;
 let offset = 0;
-let typeNumber = -1;
+var typeNumber = -1;
 
 function convertPokemonToLi(pokemon) {
   return `
@@ -28,6 +28,9 @@ function convertPokemonToLi(pokemon) {
 
 function loadPokemonItens(offset, limit) {
   pokeApi.getPokemons(offset, limit).then((pokemons = []) => {
+    var newHtml = []
+
+    let oldTypes = pokeReduxGetTypes();
 
     pokeReduxSetPokemons(pokemons)
 
@@ -35,8 +38,15 @@ function loadPokemonItens(offset, limit) {
 
     pokeReduxSetTypes(types)
 
-    console.log(pokeReduxGetTypes())
-    const newHtml = pokemons.map(convertPokemonToLi).join('');
+    if(typeNumber == -1){
+      newHtml = pokemons.map(convertPokemonToLi).join('');
+      console.log('all')
+    }else{
+      filteredPokemons = pokemons.filter((pokemon) => pokemon.types.includes(oldTypes[typeNumber]));
+      newHtml = filteredPokemons.map(convertPokemonToLi).join('');
+      console.log(types[typeNumber])
+    }
+
 
     pokemonList.innerHTML += newHtml;
 
@@ -130,9 +140,6 @@ function filterType(isUp) {
 
   let pokemons = pokeReduxGetPokemons();
 
-  console.log(isUp)
-  console.log(typeNumber == allTypes)
-
   if (isUp) {
     if(typeNumber == allTypes){
       typeNumber = -1
@@ -144,8 +151,6 @@ function filterType(isUp) {
   } else {
     typeNumber = allTypes
   }
-  
-  console.log(typeNumber)
 
   typeFilter.innerHTML = '';
 
