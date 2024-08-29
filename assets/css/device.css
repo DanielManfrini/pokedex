@@ -1,4 +1,4 @@
-.screen {
+.content .screen {
   box-shadow: inset 0px 0px 10px 5px rgba(0,0,0,0.5);
   background-color: #88c03d;
 
@@ -11,7 +11,7 @@
   overflow-y: hidden;
 }
 
-.cutter{
+.content .screen .cutter{
   border-radius: 10px;
   overflow-y: auto;
   height: 560px;
@@ -19,10 +19,105 @@
   scrollbar-width: none;
 }
 
+.pannel{
+  margin-top: 2rem;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.frame{
+  background: gray;
+
+  width: 200px;
+  height: 150px;
+
+  padding: 1rem;
+
+  border-radius: 1rem;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.sub-screen{
+  border-radius: 0.5rem;
+  box-shadow: inset 0px 0px 10px 5px rgba(0,0,0,0.5);
+  background-color: #88c03d;
+
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-around;
+
+  padding: 1rem;
+  color: #fff;
+}
+
+.navigation{
+ background: gray;
+ width: 150px;
+ height: 150px;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+
+ border-radius: 1rem;
+
+ gap: 5px;
+}
+
+.navigation>div{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 30px;
+ }
+
+.axis{
+  background: black;
+  border: none;
+  border-radius: 0.5rem;
+  color: #FFF;
+  text-align: center;
+  cursor: pointer;
+}
+
+.axis.up,
+.axis.down{
+  height: 50px;
+  width: 25px;
+}
+
+.axis.left,
+.axis.rigth{
+  height: 25px;
+  width: 50px;
+}
+
 @media screen and (min-width: 992px) {
   .screen {
       max-width: 992px;
       width: 700px;
       border-radius: 1rem;
+  }
+
+  .pannel{
+    margin: auto;
+  
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 15rem;
   }
 }

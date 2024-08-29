@@ -28,25 +28,44 @@
 
     <div class="screen">
       
-      <div class="cutter">
+      <div class="cutter" id="cutter">
         <ol id="pokemonList" class="pokemons">
-          <!-- ..... Pokemons here ..... -->
         </ol>
       </div>
-      
-      <div class="pagination">
-        <button id="loadMoreButton" type="button">
-          Load More
-        </button>
+
+      <div id="detailed" id="detailed" style="display: none;">
       </div>
 
     </div>
+
+    <div class="pannel">
+
+      <div class="frame">
+        <div class="sub-screen">
+          <span>Types:</span>
+          <span id="type-filter">All</span>
+        </div>
+      </div>
+
+      <div class="navigation">
+        <button class="axis up" onClick="filterType(true)">↑</button>
+        <!-- <div>
+          <button class="axis left">←</button>
+          <button class="axis rigth">→</button>
+        </div> -->
+        <button class="axis down" onClick="filterType(false)">↓</button>
+      </div>
+
+    </div>
+
   </section>
 
   <!-- Nosso JS -->
+  <script src="./assets/js/poke-redux.js"></script>
   <script src="./assets/js/pokemon-model.js"></script>
   <script src="./assets/js/poke-api.js"></script>
   <script src="./assets/js/main.js"></script>
+
 </body>
 
 </html>
